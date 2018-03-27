@@ -40,16 +40,11 @@ CODE FEATURE:
             Log.d("data","THE PERMISSION IS NOT REQUESTED PERMISIION ACESS_FINE_LOCATION ");
 
         }
-2.) Runtime Permission Request ..
- /**
-     *
-     * @param requestCode
-     * @param permissions
-     * @param grantResults
-     *
-     * Requesting the permission to be granted
-     */
-    @Override
+2.) Runtime Permission Request .
+
+
+ 
+    
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
         switch (requestCode) {
             case MY_PERMISSIONS_REQUEST_READ_CONTACTS: {
@@ -73,7 +68,9 @@ CODE FEATURE:
         }
         
 3.) GPS CLASS ESASY TO inherit :
+
      a.) Class Calling: 
+     -------------------
       Gps gps = new Gps(getApplicationContext(),locationManager);
                 textView.setText(gps.getLatLong());
                 
@@ -92,4 +89,4 @@ java.lang.NullPointerException: Attempt to invoke virtual method 'java.lang.Stri
  Solution :
  -----------
 If your are using LocationManager.GPS_PROVIDER there are chnaces of getting the null pointer exception:
-Therefore to overcome this issue . i have written a function to which get the location object by using different providres
+Therefore to overcome this issue . i have written a function called getLastKnownLocation(LocationManager locationManager) which get the location object by using different providres{passive provider , GPS, internet}
